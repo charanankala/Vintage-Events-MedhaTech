@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Events - Event & Party Planning</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+   
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-search-container">
+                <div class="nav-logo" onclick="scrollToTop()">
+                    <img src="images/brandb_frame1.jpg" alt="Vintage Events Logo" width="60" height="60">
+                    <h1>Vintage Events</h1>
+                </div>
+                <div class="search-container">
+                    <input type="text" class="search-bar" placeholder="Search events..." onkeyup="searchEvents()">
+                    <div class="recent-searches" id="recentSearches"></div>
+                </div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#" class="menu-toggle" onclick="toggleMegaMenu()"><i class="fa fa-book"></i> Menu</a></li>
+                <li class="nav-icon">
+                    <a href="#login" class="login-btn"> Login</a>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mega Menu -->
+    <div class="mega-menu" id="megaMenu">
+        <div class="menu-container">
+            <div class="menu-category">
+                <h3>Main Menu</h3>
+                <ul class="menu-list">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="menu-category">
+                <h3>Our Services</h3>
+                <ul class="menu-list">
+                    <li><a href="#weddings">Wedding Events</a></li>
+                    <li><a href="#birthdays">Birthday Parties</a></li>
+                    <li><a href="#corporate">Corporate Events</a></li>
+                    <li><a href="#surprise">Surprise Events</a></li>
+                </ul>
+            </div>
+            
+            <div class="menu-category">
+                <h3>Decorations</h3>
+                <ul class="menu-list">
+                    <li><a href="#vintage">Vintage Themes</a></li>
+                    <li><a href="#modern">Modern Classic</a></li>
+                    <li><a href="#outdoor">Outdoor Settings</a></li>
+                    <li><a href="#indoor">Indoor Arrangements</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner Slider -->
+    <section class="banner-slider" id="home">
+        <div class="slider-container">
+            <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+                <div class="slide-content">
+                    <h2>Vintage Wedding Celebrations</h2>
+                    <p>Create timeless memories with our vintage-themed wedding packages</p>
+                </div>
+            </div>
+            
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+                <div class="slide-content">
+                    <h2>Birthday Celebrations</h2>
+                    <p>Vintage-styled birthday parties that create lasting memories</p>
+                </div>
+            </div>
+            
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80')">
+                <div class="slide-content">
+                    <h2>Corporate Events</h2>
+                    <p>Professional vintage-themed corporate gatherings</p>
+                </div>
+            </div>
+            
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80')">
+                <div class="slide-content">
+                    <h2>Surprise Parties</h2>
+                    <p>Unforgettable surprise celebrations with vintage charm</p>
+                </div>
+            </div>
+        </div>
+        
+        <button class="slider-btn prev" onclick="changeSlide(-1)">❮</button>
+        <button class="slider-btn next" onclick="changeSlide(1)">❯</button>
+        
+        <div class="slider-dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <h2 class="section-title">Services We Offer</h2>
+            <p class="section-subtitle">Creating memorable vintage experiences for every occasion</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <div class="service-overlay">
+                            <div class="service-overlay-text">Elegant Wedding Packages</div>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Wedding Packages</h3>
+                        <p>Complete vintage wedding planning with elegant decorations, vintage venues, and timeless photography to make your special day unforgettable.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <div class="service-overlay">
+                            <div class="service-overlay-text">Vintage Birthday Celebrations</div>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Birthday Parties</h3>
+                        <p>Vintage-themed birthday celebrations with retro decorations, classic games, and nostalgic elements that bring joy to all ages.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <div class="service-overlay">
+                            <div class="service-overlay-text">Memorable Surprise Events</div>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Surprise Parties</h3>
+                        <p>Carefully planned surprise parties with vintage themes, ensuring every detail is perfect for that special moment of joy and surprise.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <div class="service-overlay">
+                            <div class="service-overlay-text">Professional Corporate Events</div>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>College & School Events</h3>
+                        <p>Educational institution events with vintage flair, including graduations, reunions, and cultural celebrations with classic elegance.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/indoor_service.jpg" alt="Indoor Vintage Settings"
+                             loading="lazy" width="800" height="600">
+                        <div class="service-overlay">
+                            <div class="service-overlay-text">Indoor Vintage Settings</div>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Indoor Services</h3>
+                        <p>Beautiful indoor vintage setups with antique furniture, classic lighting, and period-appropriate decorations for intimate gatherings.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/outdoor_service.jpg" alt="Outdoor Vintage Experiences"
+                             loading="lazy" width="800" height="600">
+                        <div class="service-overlay">
+                            <div class="service-overlay-text">Outdoor Vintage Experiences</div>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Outdoor Services</h3>
+                        <p>Garden parties and outdoor vintage events with rustic charm, vintage tents, and natural settings that capture the essence of bygone eras.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore Categories Slider -->
+    <section class="explore-section">
+        <div class="container">
+            <h2 class="section-title">Explore Our Categories</h2>
+            <p class="section-subtitle">Discover the perfect vintage theme for your event</p>
+            
+            <div class="explore-slider">
+                <div class="explore-track" id="exploreTrack">
+                    <div class="explore-card">
+                        <div class="explore-image">
+                            <img src="images/housewarming.jpg" alt="Housewarming Events" 
+                                 loading="lazy" width="800" height="600">
+                        </div>
+                        <div class="explore-content">
+                            <h3>Housewarming</h3>
+                            <p>Vintage home celebrations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="explore-card">
+                        <div class="explore-image">
+                            <img src="images/festivedecors.jpg" alt="Festival Decorations"
+                                 loading="lazy" width="800" height="600">
+                        </div>
+                        <div class="explore-content">
+                            <h3>Festival Decors</h3>
+                            <p>Traditional vintage festivities</p>
+                        </div>
+                    </div>
+                    
+                    <div class="explore-card">
+                        <div class="explore-image">
+                            <img src="images/sreemantham.jpg" alt="Sreemantham Decorations"
+                                 loading="lazy" width="800" height="600">
+                        </div>
+                        <div class="explore-content">
+                            <h3>Sreemantham Decors</h3>
+                            <p>Elegant baby shower ceremonies</p>
+                        </div>
+                    </div>
+                    
+                    <div class="explore-card">
+                        <div class="explore-image">
+                            <img src="images/haldi.webp" alt="Haldi Ceremony"
+                                 loading="lazy" width="800" height="600">
+                        </div>
+                        <div class="explore-content">
+                            <h3>Haldi Ceremony</h3>
+                            <p>Traditional pre-wedding rituals</p>
+                        </div>
+                    </div>
+                    
+                    <div class="explore-card">
+                        <div class="explore-image">
+                            <img src="images/mehendi.jpg" alt="Mehendi Events"
+                                 loading="lazy" width="800" height="600">
+                        </div>
+                        <div class="explore-content">
+                            <h3>Mehendi Events</h3>
+                            <p>Beautiful henna celebrations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="explore-card">
+                        <div class="explore-image">
+                            <img src="images/anniversary.jpg" alt="Anniversary Events"
+                                 loading="lazy" width="800" height="600">
+                        </div>
+                        <div class="explore-content">
+                            <h3>Anniversary Events</h3>
+                            <p>Romantic vintage celebrations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="explore-card">
+                        <div class="explore-image">
+                            <img src="images/customisegifts.jpg" alt="Customize Gifts"
+                                 loading="lazy" width="800" height="600">
+                        </div>
+                        <div class="explore-content">
+                            <h3>Customize Gifts</h3>
+                            <p>Personalized vintage presents</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="slider-btn prev" onclick="slideExplore(-1)">❮</button>
+                <button class="slider-btn next" onclick="slideExplore(1)">❯</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add-on Services -->
+    <section class="addon-section">
+        <div class="container">
+            <h2 class="section-title" style="color: #F5E6D3;">Extra Add-on Services</h2>
+            <p class="section-subtitle" style="color: #D2B48C;">Enhance your event with our premium vintage services</p>
+            
+            <div class="addon-grid">
+                <div class="addon-card">
+                    <div class="addon-icon">🍽</div>
+                    <h3>Vintage Catering</h3>
+                    <p>Authentic vintage cuisine with period-appropriate presentation and classic recipes that transport your guests to another era.</p>
+                </div>
+                
+                <div class="addon-card">
+                    <div class="addon-icon">🎨</div>
+                    <h3>Period Decorations</h3>
+                    <p>Authentic vintage decorations including antique furniture, classic lighting, and period-specific ornaments for complete ambiance.</p>
+                </div>
+                
+                <div class="addon-card">
+                    <div class="addon-icon">🎵</div>
+                    <h3>DJ & Sound Systems</h3>
+                    <p>Professional audio setup with vintage music collections and modern sound systems for the perfect nostalgic atmosphere.</p>
+                </div>
+                
+                <div class="addon-card">
+                    <div class="addon-icon">⛺</div>
+                    <h3>Vintage Tent House</h3>
+                    <p>Classic vintage tents and marquees with period-appropriate styling for outdoor events and garden parties.</p>
+                </div>
+                
+                <div class="addon-card">
+                    <div class="addon-icon">📸</div>
+                    <h3>Photography & Videography</h3>
+                    <p>Professional vintage-style photography and videography to capture your memories with classic elegance and timeless beauty.</p>
+                </div>
+                
+                <div class="addon-card">
+                    <div class="addon-icon">🎁</div>
+                    <h3>Customized Vintage Gifts</h3>
+                    <p>Personalized vintage-themed gifts and party favors that guests will treasure as keepsakes from your special event.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="featured-section">
+        <div class="container">
+            <h2 class="section-title">Featured Services</h2>
+            <p class="section-subtitle">Our most popular vintage event categories</p>
+            
+            <div class="featured-grid">
+                <div class="featured-card" id="decorations">
+                    <div class="featured-image" style="background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="featured-overlay">
+                        <h3>Vintage Decorations</h3>
+                        <p>Exquisite vintage decorations for all occasions</p>
+                    </div>
+                </div>
+                
+                <div class="featured-card" id="candle-light">
+                    <div class="featured-image" style="background-image: url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="featured-overlay">
+                        <h3>Candle Light Dinners</h3>
+                        <p>Romantic vintage-style intimate dining experiences</p>
+                    </div>
+                </div>
+                
+                <div class="featured-card" id="private-theatre">
+                    <div class="featured-image">
+                        <img src="images/privatetheatre.jpg" alt="Private Theatre Celebrations"
+                             loading="lazy" width="800" height="600">
+                    </div>
+                    <div class="featured-overlay">
+                        <h3>Private Theatre Celebrations</h3>
+                        <p>Exclusive vintage cinema experiences</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Create Your Perfect Vintage Event</h3>
+                    <p>Ready to step back in time? Our vintage event specialists are here to transform your vision into reality with authentic period details and timeless elegance.</p>
+                    <div class="contact-details">
+                        <p>📞 Phone: +1 (555) 123-VINTAGE</p>
+                        <p>✉ Email: hello@vintagevibevents.com</p>
+                        <p>📍 Address: 123 Vintage Lane, Classic City</p>
+                        <p>🕒 Hours: Mon-Sat 9AM-7PM</p>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder="Your Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="eventType">
+                            <option value="">Select Event Type</option>
+                            <option value="wedding">Vintage Wedding</option>
+                            <option value="birthday">Birthday Party</option>
+                            <option value="anniversary">Anniversary</option>
+                            <option value="corporate">Corporate Event</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder="Tell us about your vintage event vision..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>What makes your events vintage-themed?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We specialize in authentic vintage styling using period-appropriate decorations, furniture, music, and cuisine from specific eras. Our team meticulously researches historical details to create genuine vintage atmospheres.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>How far in advance should I book my vintage event?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We recommend booking at least 4-6 weeks in advance for smaller events and 3-4 months for larger celebrations like weddings to ensure availability of vintage items and proper planning time.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Do you provide vintage costumes or attire guidance?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We offer styling consultations and can recommend period-appropriate attire. We also have partnerships with vintage clothing rental services to help you and your guests dress the part.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Can you accommodate different vintage eras?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We specialize in various vintage eras including Victorian, 1920s Art Deco, 1950s Retro, and 1960s themes. Each era has its unique style and we tailor everything accordingly.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>What's included in your vintage catering service?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our vintage catering includes period-appropriate menus, vintage serving dishes, classic cocktails, and presentation styles that match your chosen era. We use traditional recipes and serving methods for authenticity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Vintage Vibe Events</h3>
+                    <p>Creating timeless memories through authentic vintage experiences. Step back in time with our expertly crafted vintage events.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fa fa-facebook" style="font-size:24px"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-instagram" style="font-size:24px"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-twitter"style="font-size:24px"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-whatsapp"style="font-size:24px"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-youtube-play" style="font-size:24px"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#services">Vintage Weddings</a></li>
+                        <li><a href="#services">Birthday Parties</a></li>
+                        <li><a href="#services">Corporate Events</a></li>
+                        <li><a href="#services">Anniversary Celebrations</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Add-on Services</h4>
+                    <ul>
+                        <li><a href="#addon">Vintage Catering</a></li>
+                        <li><a href="#addon">Period Decorations</a></li>
+                        <li><a href="#addon">Photography</a></li>
+                        <li><a href="#addon">Customized Gifts</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fa fa-phone" style="font-size:20px"></i>  +1 (555) 123-VINTAGE</li>
+                        <li><i class="fa fa-envelope" style="font-size:20px"></i>  hello@vintagevibevents.com</li>
+                        <li><i class="fa fa-map-marker" style="font-size:20px"></i>   123 Vintage Lane, Classic City</li>
+                        <li><i class="fa fa-clock-o" style="font-size:20px"></i>  Mon-Sat 9AM-7PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Vintage Vibe Events. All rights reserved. | Creating timeless memories since 2020</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <div class="success-content">
+            <span>✅</span>
+            <span>Thank you! We'll contact you soon to plan your vintage event.</span>
+        </div>
+    </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
